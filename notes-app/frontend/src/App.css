@@ -1,45 +1,42 @@
-@import "tailwindcss";
-
-:root{
-  --special-color: #FF7A30;
-  --dark-bg: #000000;
-  --light-bg: #E9E3DF;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 }
 
-body.dark{
-  background-color: var(--dark-bg);
-  color: white;
-  /* box-shadow: 0 3px 3px rgb(255, 251, 251); */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-body.dark::placeholder{
-  color: white;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
-body{
-  background-color: var(--light-bg);
-}
-
-.text-special{
-  color: var(--special-color);
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.953);
-} 
-
-.inputSearch{
-  /* border: 1px solid black;
-  border-top: 0px;
-  border-left: 0px;
-  border-radius: 8px; */
-  padding: 8px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.953);
-  width: 150px;
-  outline: none;
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-.button{
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-  background-color: var(--special-color);
-  color: rgb(0, 0, 0);
-  font-weight: bold;
-  padding: 8px 16px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.953);
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }
