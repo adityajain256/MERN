@@ -130,6 +130,11 @@ button:hover {
   max-width: 600px;
   margin: 2rem auto;
   padding: 1rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  margin-top: 5rem;
 }
 .notes-list .note {
   background: #f9f9f9;
@@ -145,3 +150,50 @@ button:hover {
   color: #333;
 }
 
+.nav-links{
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding-right: 2em;
+  font-size: larger;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  text-decoration: none;
+
+}
+
+.nav-links li {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.nav-links li:hover {
+  color: #4a90e2;
+  text-decoration: wavy underline;
+  
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  
+}
+
+.note-actions {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.delete {
+  background:#e74c3c;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
