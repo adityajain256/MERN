@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import User from "./user.model.js";
+// import User from "./user.model.js";
 
 const habitSchema = new mongoose.Schema(
   {
@@ -14,14 +14,9 @@ const habitSchema = new mongoose.Schema(
     },
     frequency: {
       type: String,
-      required: true,
+      // required: true,
       enum: ["daily", "weekly", "monthly"],
       default: "daily",
-    },
-    goal: {
-      type: Number,
-      required: true,
-      min: 1,
     },
     startDate: {
       type: Date,
@@ -33,12 +28,6 @@ const habitSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
-    history: [
-      {
-        date: { type: Date, required: true },
-        status: { type: String, enum: ["completed", "missed"], required: true },
-      },
-    ],
   },
   { timestamps: true }
 );
