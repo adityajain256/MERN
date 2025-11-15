@@ -6,16 +6,17 @@ import {
   handleUpdateHabit,
   handleDeleteHabit
 } from "../controllers/habits.controller.js";
+import { isAuthenticated } from '../middlewares/auth.middleware.js';
 
 const habitRouter = express.Router();
 
-habitRouter.get("/habits", handleGetAllHabits);
-habitRouter.get("/habits/:id", handleGetHabitById);
+habitRouter.get("/habits", isAuthenticated, handleGetAllHabits);
+habitRouter.get("/habits/:id", isAuthenticated, handleGetHabitById);
 
-habitRouter.post("/habits", handleCreateHabit);
+habitRouter.post("/habits", isAuthenticated, handleCreateHabit);
 
-habitRouter.patch("/habits/:id", handleUpdateHabit);
+habitRouter.patch("/habits/:id", isAuthenticated, handleUpdateHabit);
 
-habitRouter.delete("/habits/:id", handleDeleteHabit);
+habitRouter.delete("/habits/:id", isAuthenticated, handleDeleteHabit);
 
 export default habitRouter;

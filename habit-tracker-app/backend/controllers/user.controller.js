@@ -1,5 +1,6 @@
 import User from "../models/user.model.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken"
 
 
 export const handleGetAllUsers = async (req, res) => {
@@ -80,7 +81,13 @@ export const handleLoginUser = async (req, res) => {
 
         const isVarified = await bcrypt.compare(password, user.password);
 
-        res.status(200).json({isVarified});
+        const token = jwt.sign(
+          { email: user.email, _id: user._id },
+          process.env.JWT_seceret,
+          { expiresIn: "1d" }
+        );
+
+        res.status(200).json({isVarified, token});
     } catch (error) {
         console.log(`error in login user ${error}`);
         res.status(500).json({message: `error in login user ${error}`});
