@@ -66,3 +66,17 @@ export const handleUpdate = async (res, req) => {
             return res.status(500).json({ error: "Server error" });
     }
 }
+
+export const handleLoginUser = async (res, req) => {
+    const { number, password } = req.body;
+    if(!number) return res.status(401).json({message: "number is required! "})
+    if(!password) return res.status(401).json({message: "password is required! "})
+    try {
+        const user = await User.findOne({number: number});
+        if(!user) return res.status(401).json({message: "No user is exist with this number."})
+        if(user.number = number) return res.status(200).json({message: true})
+    } catch (error) {
+        console.error(`error in getting user by id`, error);
+        return res.status(500).json({ error: "Server error" });
+    }
+}
